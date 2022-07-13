@@ -8,6 +8,7 @@ import os
 
 def download_vid_by_titles(los):
 	ids = []
+	# query video that corresponds with data in csv file
 	for index, item in enumerate(los):
 		vid_id = query_vid_id(item)
 		ids += [vid_id]
@@ -17,8 +18,9 @@ def download_vid_by_titles(los):
 
 def download_vid_by_ids(lov):
 	SAVE_PATH = str(os.path.join(Path.home(), "Downloads/songs"))
+	# to pass by
 	try:
-		os.mkdir(SAVE_PATH)
+		os.makedirs(SAVE_PATH)
 	except:
 		print("folder exists")
 	ydl_opts = {
